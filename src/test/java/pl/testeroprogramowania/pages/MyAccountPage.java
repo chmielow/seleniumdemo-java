@@ -1,9 +1,11 @@
 package pl.testeroprogramowania.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 import java.time.Duration;
 
@@ -26,9 +28,9 @@ public class MyAccountPage {
 
         regEmailInsert.sendKeys(email);
         regPasswordInsert.sendKeys(password);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        SeleniumHelper.waitForElementToExist(driver, By.name("register"));
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         registerButton.click();
-        //registerButton.click();
         return new LoggedUserPage(driver);
 
 

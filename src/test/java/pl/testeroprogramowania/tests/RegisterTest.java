@@ -12,7 +12,7 @@ public class RegisterTest extends BaseTest {
         int randomNumber = (int) (Math.random()*1000);
         WebElement dashboardLink = new HomePage(driver)
                 .openMyAccountPage()
-                .registerUser(randomNumber+"test@test.pl", "7test@test.pl")
+                .registerUserValidData(randomNumber+"test@test.pl", "7test@test.pl")
                 .getDashBoardLink();
 
         Assert.assertEquals(dashboardLink.getText(),"Dashboard");
@@ -23,7 +23,7 @@ public class RegisterTest extends BaseTest {
 
         WebElement error = new HomePage(driver)
                 .openMyAccountPage()
-                .registerUser("test@test.pl", "7test@test.pl")
+                .registerUserInvalidData("test@test.pl", "7test@test.pl")
                 .getError();
         Assert.assertEquals(error.getText(),"Error: An account is already registered with your email address. Please log in.");
         Assert.assertTrue(error.getText().contains("Error"));

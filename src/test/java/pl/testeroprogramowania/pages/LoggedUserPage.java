@@ -16,7 +16,8 @@ public class LoggedUserPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public WebElement getDashBoardLink(){
+
+    public WebElement getDashBoardLink() {
         return dashBoardLink;
     }
 

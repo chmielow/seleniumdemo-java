@@ -8,13 +8,15 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
     @FindBy(xpath = "//span[text()='My account']")
     private WebElement myAccountLink;
+
     private final WebDriver driver;
 
-    public HomePage(WebDriver driver){
-        PageFactory.initElements(driver,this);
+    public HomePage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public MyAccountPage openMyAccountPage(){
+
+    public MyAccountPage openMyAccountPage() {
         myAccountLink.click();
         return new MyAccountPage(driver);
 

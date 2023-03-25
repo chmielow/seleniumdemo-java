@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import pl.testeroprogramowania.utils.SeleniumHelper;
 
+import java.time.Duration;
+
 public class MyAccountPage {
 
     @FindBy(id = "reg_email")
@@ -26,7 +28,7 @@ public class MyAccountPage {
         regEmailInsert.sendKeys(email);
         regPasswordInsert.sendKeys(password);
         SeleniumHelper.waitForElementToBeVisible(driver, registerButton);
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         registerButton.click();
         return new LoggedUserPage(driver);
 

@@ -17,7 +17,7 @@ public class MyAccountPage {
     @FindBy(xpath = "//ul[@class='woocommerce-error']//li")
     private WebElement error;
     @FindBy(id = "username")
-    private WebElement userNameImput;
+    private WebElement userNameInput;
     @FindBy(id = "password")
     private WebElement passwordInput;
 
@@ -59,8 +59,8 @@ public class MyAccountPage {
         return this;
     }
 
-    public void logIn(String userName, String password) {
-        userNameImput.sendKeys(userName);
+    private void logIn(String userName, String password) {
+        userNameInput.sendKeys(userName);
         passwordInput.sendKeys(password);
         loginButton.click();
     }

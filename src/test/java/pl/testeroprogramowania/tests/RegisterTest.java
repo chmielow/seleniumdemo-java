@@ -8,12 +8,14 @@ import pl.testeroprogramowania.pages.HomePage;
 @Test
 public class RegisterTest extends BaseTest {
     public void registerUserTest() {
-        WebElement entryTitle = new HomePage(driver)
+
+        int randomNumber = (int) (Math.random()*1000);
+        WebElement dashboardLink = new HomePage(driver)
                 .openMyAccountPage()
-                .registerUser("6test@test.pl", "6test@test.pl")
-                .getEntryTitle();
-        Assert.assertTrue(entryTitle.isDisplayed());
-        Assert.assertEquals(entryTitle.getText(),"My account");
+                .registerUser(randomNumber+"test@test.pl", "7test@test.pl")
+                .getDashBoardLink();
+
+        Assert.assertEquals(dashboardLink.getText(),"Dashboard");
 
 
     }

@@ -28,7 +28,7 @@ public class MyAccountPage {
 
         regEmailInsert.sendKeys(email);
         regPasswordInsert.sendKeys(password);
-        SeleniumHelper.waitForElementToExist(driver, By.name("register"));
+        SeleniumHelper.waitForElementToBeVisible(driver,registerButton);
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         registerButton.click();
         return new LoggedUserPage(driver);

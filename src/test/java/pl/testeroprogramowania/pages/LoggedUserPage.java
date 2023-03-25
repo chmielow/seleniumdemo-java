@@ -9,14 +9,14 @@ public class LoggedUserPage {
 
     private final WebDriver driver;
 
-    @FindBy(xpath = "//h1[@class='entry-title']")
-    private WebElement entryTitle;
+    @FindBy(linkText = "Dashboard")
+    private WebElement dashBoardLink;
 
     public LoggedUserPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
-    public WebElement getEntryTitle(){
-        return entryTitle;
+    public WebElement getDashBoardLink(){
+        return dashBoardLink;
     }
 }

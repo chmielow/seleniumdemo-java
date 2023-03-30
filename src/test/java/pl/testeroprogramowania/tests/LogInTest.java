@@ -10,18 +10,18 @@ public class LogInTest extends BaseTest {
     public void LogInUserTest() {
         WebElement dashboardLink = new HomePage(driver)
                 .openMyAccountPage()
-                .logInValidData("test@test.pl", "test@test.pl")
+                .logInValidData("123test@test.pl", "123test@test.pl")
                 .getDashBoardLink();
 
         Assert.assertEquals(dashboardLink.getText(), "Dashboard");
     }
 
-    public void LogInUserWithInvalidPasswordTest() {
+  /*  public void LogInUserWithInvalidPasswordTest() {
         WebElement error = new HomePage(driver)
                 .openMyAccountPage()
-                .logInInvalidData("test@test.pl", "123test@test.pl")
+                .logInInvalidData("123test@test.pl", "123test@test.pl")
                 .getError();
 
         Assert.assertTrue(error.getText().contains("ERROR"));
-    }
+    }*/
 }

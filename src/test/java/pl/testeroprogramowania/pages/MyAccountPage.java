@@ -1,5 +1,6 @@
 package pl.testeroprogramowania.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -49,9 +50,10 @@ public class MyAccountPage {
     private void registerUser(String email, String password) {
         regEmailInsert.sendKeys(email);
         regPasswordInsert.sendKeys(password);
+        SeleniumHelper.waitForElementToBeClickable(driver, registerButton);
         SeleniumHelper.waitForElementToBeVisible(driver, registerButton);
+        SeleniumHelper.waitForElementToExist(driver, By.name("register"));
         registerButton.click();
-
     }
 
     public LoggedUserPage logInValidData(String userName, String password) {

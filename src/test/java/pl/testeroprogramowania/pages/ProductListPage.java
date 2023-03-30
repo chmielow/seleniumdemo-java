@@ -3,9 +3,9 @@ package pl.testeroprogramowania.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 public class ProductListPage {
-
     private WebDriver driver;
 
     public ProductListPage(WebDriver driver) {
@@ -14,7 +14,10 @@ public class ProductListPage {
     }
 
     public ProductPage openProduct(String title){
-        driver.findElement(By.xpath("//h2[text()='"+ title +"']")).click();
+        By productXpath = By.xpath("//h2[text()='"+ title +"']");
+        SeleniumHelper.waitForElementToBeClickableBy(driver,productXpath);
+
+        driver.findElement(productXpath).click();
         return new ProductPage(driver);
     }
 }

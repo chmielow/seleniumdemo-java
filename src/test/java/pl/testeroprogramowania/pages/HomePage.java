@@ -11,6 +11,7 @@ public class HomePage {
 
     @FindBy(xpath = "//span[text()='Shop']")
     private WebElement shopLink;
+
     private final WebDriver driver;
 
     public HomePage(WebDriver driver) {
@@ -27,5 +28,4 @@ public class HomePage {
         shopLink.click();
         return new ProductListPage(driver);
     }
-
 }

@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import pl.testeroprogramowania.models.Customer;
+import pl.testeroprogramowania.utils.SeleniumHelper;
 
 public class AddressDetailsPage {
 
@@ -48,6 +49,7 @@ public class AddressDetailsPage {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
+
     public OrderDetailsPage fillAddressDetails(Customer customer, String comments){
         firstNameInput.sendKeys(customer.getFirstName());
         lastNameInput.sendKeys(customer.getLastName());
@@ -60,6 +62,7 @@ public class AddressDetailsPage {
         billingPhoneInput.sendKeys(customer.getPhone());
         billingEmailInput.sendKeys(customer.getEmail());
         orderCommentsInput.sendKeys(comments);
+        SeleniumHelper.waitForElementToBeClickable(driver,placeOrderButton);
         placeOrderButton.click();
         return new OrderDetailsPage(driver);
     }

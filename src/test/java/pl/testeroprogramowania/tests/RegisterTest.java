@@ -12,6 +12,7 @@ public class RegisterTest extends BaseTest {
         WebElement dashboardLink = new HomePage(driver)
                 .openMyAccountPage()
                 .registerUserValidData(randomNumber + "test@test.pl", "7test@test.pl")
+                //.registerUserValidData("123test@test.pl", "123test@test.pl")
                 .getDashBoardLink();
 
         Assert.assertEquals(dashboardLink.getText(), "Dashboard");

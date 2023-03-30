@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import pl.testeroprogramowania.models.Customer;
 
 public class AddressDetailsPage {
 
@@ -22,9 +24,6 @@ public class AddressDetailsPage {
     @FindBy(id = "billing_address_1")
     private WebElement billingAddressInput;
 
-    @FindBy(id = "billing_address_2")
-    private WebElement billingAddressSecondInput;
-
     @FindBy(id = "billing_postcode")
     private WebElement billingPostCodeInput;
 
@@ -41,12 +40,27 @@ public class AddressDetailsPage {
     private WebElement orderCommentsInput;
 
     @FindBy(id = "place_order")
-    private WebElement placeOrderInput;
+    private WebElement placeOrderButton;
 
     private WebDriver driver;
 
     public AddressDetailsPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
+    }
+    public OrderDetailsPage fillAddressDetails(Customer customer, String comments){
+        firstNameInput.sendKeys(customer.getFirstName());
+        lastNameInput.sendKeys(customer.getLastName());
+        companyNameInput.sendKeys(customer.getCompanyName());
+        Select countrySelect = new Select(billingCountrySelect);
+        countrySelect.selectByVisibleText(customer.getCountry());
+        billingAddressInput.sendKeys(String.format("%s %s", customer.getStreet(),customer.getFlatNumber()));
+        billingPostCodeInput.sendKeys(customer.getZipCode());
+        billingCityInput.sendKeys(customer.getCity());
+        billingPhoneInput.sendKeys(customer.getPhone());
+        billingEmailInput.sendKeys(customer.getEmail());
+        orderCommentsInput.sendKeys(comments);
+        placeOrderButton.click();
+        return new OrderDetailsPage(driver);
     }
 }

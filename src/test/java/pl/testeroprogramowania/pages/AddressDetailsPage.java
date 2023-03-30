@@ -18,7 +18,7 @@ public class AddressDetailsPage {
     @FindBy(id = "billing_company")
     private WebElement companyNameInput;
 
-    @FindBy(id = "select2_billing_country_container")
+    @FindBy(id = "billing_country")
     private WebElement billingCountrySelect;
 
     @FindBy(id = "billing_address_1")

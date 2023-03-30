@@ -2,16 +2,17 @@ package pl.testeroprogramowania.models;
 
 public class Customer {
 
-    private String firstName;
-    private String lastName;
-    private String companyName;
-    private String country;
-    private String street;
-    private String flatNumber;
-    private String zipCode;
-    private String city;
-    private String phone;
-    private String email;
+    private String firstName = "Marcin";
+    private String lastName = "Tester";
+    private String companyName = "BMW";
+    private String country = "Poland";
+    private String street = "Testowa";
+    private String flatNumber = "11";
+    private String zipCode = "12345";
+    private String city = "Warszawa";
+    private String phone = "123456789";
+    private String email = "test@test.pl";
+
 
     public String getFirstName() {
         return firstName;

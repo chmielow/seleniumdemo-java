@@ -8,7 +8,12 @@ import pl.testeroprogramowania.pages.HomePage;
 @Test
 public class CheckoutTest extends BaseTest {
     public void checkoutTest() {
-        new HomePage(driver).openShopPage().openProduct("Java Selenium WebDriver").addProductToCart();
+        new HomePage(driver)
+                .openShopPage()
+                .openProduct("Java Selenium WebDriver")
+                .addProductToCart()
+                .viewCart()
+                .openAddressDetails();
 
     }
 
